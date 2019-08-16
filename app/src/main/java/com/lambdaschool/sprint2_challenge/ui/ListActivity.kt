@@ -10,11 +10,13 @@ import com.lambdaschool.sprint2_challenge.adapter.ShoppingListAdapter
 import com.lambdaschool.sprint2_challenge.util.Notification
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class ListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        title = "Shopping List"
 
         //Generates item list
         ItemRepository.createItemList()
