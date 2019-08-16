@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.lambdaschool.sprint2_challenge.ItemRepository
 import com.lambdaschool.sprint2_challenge.R
 import com.lambdaschool.sprint2_challenge.adapter.ShoppingListAdapter
+import com.lambdaschool.sprint2_challenge.util.Notification
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra(Intent.EXTRA_TEXT, getItemsSelected())
                 intent.setType("text/plain")
                 startActivity(intent)
+                Notification.createNotification(applicationContext)
             }
         }
     }
