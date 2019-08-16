@@ -1,5 +1,6 @@
 package com.lambdaschool.sprint2_challenge.ui
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -20,6 +21,13 @@ class MainActivity : AppCompatActivity() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(applicationContext)
             adapter = ShoppingListAdapter(ItemRepository.itemList)
+
+            button_send_list.setOnClickListener {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.putExtra(Intent.EXTRA_TEXT, getItemsSelected())
+                intent.setType("text/plain")
+                startActivity(intent)
+            }
         }
     }
 
