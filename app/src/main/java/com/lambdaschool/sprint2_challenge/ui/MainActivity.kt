@@ -22,4 +22,14 @@ class MainActivity : AppCompatActivity() {
             adapter = ShoppingListAdapter(ItemRepository.itemList)
         }
     }
+
+    private fun getItemsSelected() : String {
+        var itemsSelectedString = "Please place this order for me: "
+        for (item in ItemRepository.itemList) {
+            if (item.isSelected) {
+                itemsSelectedString += "${item.itemName}, "
+            }
+        }
+        return itemsSelectedString
+    }
 }
