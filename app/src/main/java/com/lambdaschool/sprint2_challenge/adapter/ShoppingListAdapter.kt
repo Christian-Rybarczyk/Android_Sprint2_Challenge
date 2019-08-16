@@ -27,6 +27,16 @@ class ShoppingListAdapter(val shoppingList: MutableList<ShoppingItem>) : Recycle
         val item = shoppingList[p1]
 
         p0.bindModel(item)
+
+        p0.parentLayout.setOnClickListener {
+            if (item.isSelected) {
+                item.isSelected = false
+                notifyItemChanged(p1)
+            } else {
+                item.isSelected = true
+                notifyItemChanged(p1)
+            }
+        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
