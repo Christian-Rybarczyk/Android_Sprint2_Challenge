@@ -3,7 +3,10 @@ package com.lambdaschool.sprint2_challenge.ui
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Menu
+import android.view.MenuItem
 import com.lambdaschool.sprint2_challenge.repository.ItemRepository
 import com.lambdaschool.sprint2_challenge.R
 import com.lambdaschool.sprint2_challenge.adapter.ShoppingListAdapter
@@ -48,5 +51,30 @@ class ListActivity : AppCompatActivity() {
             }
         }
         return itemsSelectedString
+    }
+
+    //Override to inflate our own menu
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_about) {
+            showInfo()
+        }
+        return true
+    }
+
+    private fun showInfo() {
+        val dialogTitle = getString(R.string.about_title)
+        val dialogMessage = getString(R.string.about_message)
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(dialogTitle)
+                .setMessage(dialogMessage)
+                .create()
+                .show()
     }
 }

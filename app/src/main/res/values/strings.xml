@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Sprint2_Challenge</string>
     <string name="send_list">SEND LIST</string>
+    <string name="about_menu">About</string>
+    <string name="about_title">Shopping List Creator</string>
+    <string name="about_message">Created by Christian Rybarczyk</string>
 </resources>
